@@ -1,50 +1,75 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg: #fafafa;
+    --fg: #111;
+    --muted: #888;
+    --hr: rgba(0, 0, 0, 0.2);
+    --pinyin: #2a9d5c;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #1a1a1a;
+        --fg: #eee;
+        --muted: #999;
+        --hr: rgba(255, 255, 255, 0.25);
+        --pinyin: #55dd55;
+    }
+}
+
+body {
+    font-family: "Helvetica Neue", sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
 hr {
-    height: 3px;
-    background: white;
+    height: 2px;
+    background: var(--hr);
     border: none;
-    margin: 20px 0;
+    margin: 1.2rem 0;
 }
 
 .hanzi {
-    font-family: Hei;
-    font-size: 78px;
-    margin-top: 20px;
-    border-bottom: 3px solid rgba(0, 0, 0, 0);
-    transition:
-        border 0.5s ease,
-        padding 0.5s ease;
-}
-
-.hanzi.whover {
+    font-family: Hei, sans-serif;
+    font-size: 72px;
+    line-height: 1.2;
+    margin-top: 0.5rem;
     cursor: pointer;
-    position: relative;
-}
-
-.hanzi.whover::before {
-    content: var(--pinyin);
-    position: absolute;
-    font-family: Palatino;
-    font-size: 22px;
-    color: #55dd55;
-    padding: 0 10px 5px 10px;
-    border-left: 3px solid white;
-    transform: translate(-10px, -40px);
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    height: 140px;
-}
-
-.hanzi.whover:hover::before {
-    opacity: 1;
 }
 
 .pinyin {
-    font-family: Palatino;
+    font-family: Palatino, serif;
     font-size: 22px;
-    color: #55dd55;
+    color: var(--pinyin);
+    margin-top: 0.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.pinyin.visible {
+    opacity: 1;
 }
 
 .english {
-    font-family: Didot;
+    font-family: Didot, serif;
+    font-size: 20px;
+}
+
+.title {
+    font-size: 42px;
+    margin-bottom: 0.3rem;
+}
+
+.note {
     font-size: 16px;
+    color: var(--muted);
+    margin-top: 0.5rem;
 }

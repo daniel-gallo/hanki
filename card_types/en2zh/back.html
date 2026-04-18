@@ -1,15 +1,19 @@
 <div class="english title">{{English}}</div>
+
 {{#Note}}
-<br />
-Note: {{Note}} {{/Note}}
+<div class="note">Note: {{Note}}</div>
+{{/Note}}
 
 <hr />
 
-<br />
-<div lang="zh-Hans" class="hanzi whover" style="--pinyin: '{{text:Pinyin}}'">
+<div
+    lang="zh-Hans"
+    class="hanzi"
+    id="hanzi"
+    onclick="document.getElementById('pinyin').classList.toggle('visible')"
+>
     {{Hanzi}}
 </div>
-<div class="pinyin"><br /></div>
+<div class="pinyin" id="pinyin">{{Pinyin}}</div>
 
-<br />
 {{Sound}}
